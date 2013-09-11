@@ -46,6 +46,8 @@ module App
           end
         end
 
+        private
+
         def redirect_if_logged_in(request)
           if request[:session].has_key?(:user_id)
             {:redirect => '/'}
