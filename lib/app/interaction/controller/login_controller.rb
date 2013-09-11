@@ -22,10 +22,11 @@ module App
             return response
           end
 
-          login_result = Data::Action::LoginDataAction.exec({
-            :mappers => request[:mappers],
-            :email => request[:post][:email],
-          })
+          login_result =
+            Data::Action::LoginDataAction.exec({
+              :mappers => request[:mappers],
+              :email => request[:post][:email],
+            })
 
           if login_result.has_key?(:user_id)
             login_and_redirect(login_result[:user_id])

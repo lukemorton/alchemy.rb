@@ -10,13 +10,13 @@ module App
             return response 
           end
 
-          data_model = Data::Model::WelcomeDataModel.as_hash({
-            :mappers => request[:mappers],
-            :user_id => request[:session][:user_id],
-          })
+          data_model =
+            Data::Model::WelcomeDataModel.as_hash({
+              :mappers => request[:mappers],
+              :user_id => request[:session][:user_id],
+            })
 
           view_model = View::Model::WelcomeViewModel.as_hash(data_model)
-
           {:body => request[:view].render(:welcome, view_model)}
         end
 
