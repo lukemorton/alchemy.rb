@@ -2,10 +2,10 @@ require 'spec_helper'
 require_relative '../lib/app/interaction/controller/login_controller'
 
 def login_controller()
-  App::Interaction::Controller::LoginController.new
+  App::Interaction::Controller::Login.new
 end
 
-describe App::Interaction::Controller::LoginController do
+describe App::Interaction::Controller::Login do
   describe :view do
     it 'should show login form if not logged in' do
       response = login_controller.view(request)

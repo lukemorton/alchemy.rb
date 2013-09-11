@@ -4,14 +4,14 @@ require_relative '../../view/model/login_view_model'
 module App
   module Interaction
     module Controller
-      class LoginController
+      class Login
         def view(request)
           if response = redirect_if_logged_in(request)
             return response
           end
 
           view_model =
-            View::Model::LoginViewModel.as_hash(
+            View::Model::Login.as_hash(
               login_data_model(request))
           
           {:body => request[:view].render(:login, view_model)}
@@ -23,7 +23,7 @@ module App
           end
 
           login_result =
-            Data::Action::LoginDataAction.exec({
+            Data::Action::Login.exec({
               :mappers => request[:mappers],
               :email => request[:post][:email],
             })

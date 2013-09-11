@@ -1,7 +1,7 @@
 module App
   module Data
     module Mapper
-      class UsersDataMapper
+      class Users
         def initialize()
           @users = [
             {

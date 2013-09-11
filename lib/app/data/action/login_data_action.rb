@@ -1,7 +1,7 @@
 module App
   module Data
     module Action
-      class LoginDataAction
+      class Login
         def self.exec(data)
           self.new.exec(data)
         end

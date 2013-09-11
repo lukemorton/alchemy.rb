@@ -1,7 +1,7 @@
 module App
   module View
     module Model
-      class LoginViewModel
+      class Login
         def self.as_hash(data)
           login_view_model = self.new(data)
           {:email => login_view_model.email}

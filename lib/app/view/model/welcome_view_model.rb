@@ -1,7 +1,7 @@
 module App
   module View
     module Model
-      class WelcomeViewModel
+      class Welcome
         def self.as_hash(data)
           welcome_view_model = self.new(data)
           {

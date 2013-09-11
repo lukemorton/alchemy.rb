@@ -1,7 +1,7 @@
 module App
   module Data
     module Model
-      class WelcomeDataModel
+      class Welcome
         def self.as_hash(data)
           self.new.as_hash(data)
         end

@@ -72,8 +72,7 @@ loaded into memory.
 
 When running the dev web server, the application is served via
 sinatra. Sinatra in this case is simply used as a routing
-layer. Via the
-`App::Interaction::Application::SinatraApplication` object
+layer. Via the `App::Interaction::Application::Sinatra` object
 a request hash is created and passed into the controllers.
 This is similar to the way hashes are passed directly into
 the controllers in the test suite.

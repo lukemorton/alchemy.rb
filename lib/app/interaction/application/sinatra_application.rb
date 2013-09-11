@@ -3,7 +3,7 @@ require 'sinatra/base'
 module App
   module Interaction
     module Application
-      class SinatraApplication < Sinatra::Base
+      class Sinatra < Sinatra::Base
         enable(:sessions)
 
         private

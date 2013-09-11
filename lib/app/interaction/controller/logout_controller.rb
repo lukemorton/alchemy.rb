@@ -1,7 +1,7 @@
 module App
   module Interaction
     module Controller
-      class LogoutController
+      class Logout
         def action(request)
           {
             :session => {:user_id => nil},

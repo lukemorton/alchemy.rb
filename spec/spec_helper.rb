@@ -6,10 +6,10 @@ require_relative '../lib/app/view/template_engine/hash_template_engine'
 
 def request(request = {})
   request[:mappers] = {
-    :users => App::Data::Mapper::UsersDataMapper.new,
+    :users => App::Data::Mapper::Users.new,
   }
 
-  request[:view] = App::View::TemplateEngine::HashTemplateEngine.new
+  request[:view] = App::View::TemplateEngine::Hash.new
   
   request[:session] ||= {}
   request[:post] ||= {}

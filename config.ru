@@ -11,7 +11,7 @@ require APP_ROOT + '/lib/app/data/mapper/users_data_mapper'
 
 require APP_ROOT + '/lib/app/view/template_engine/mustache_template_engine'
 
-class Application < App::Interaction::Application::SinatraApplication
+class Application < App::Interaction::Application::Sinatra
   
   # Public asset folder
   # 
@@ -30,16 +30,16 @@ class Application < App::Interaction::Application::SinatraApplication
   # 
   def initialize()
     @controllers = {
-      :welcome => App::Interaction::Controller::WelcomeController.new,
-      :login => App::Interaction::Controller::LoginController.new,
-      :logout => App::Interaction::Controller::LogoutController.new,
+      :welcome => App::Interaction::Controller::Welcome.new,
+      :login => App::Interaction::Controller::Login.new,
+      :logout => App::Interaction::Controller::Logout.new,
     }
 
     @mappers = {
-      :users => App::Data::Mapper::UsersDataMapper.new,
+      :users => App::Data::Mapper::Users.new,
     }
 
-    @view = App::View::TemplateEngine::MustacheTemplateEngine.new({
+    @view = App::View::TemplateEngine::Mustache.new({
       :template_path => APP_ROOT + '/templates'
     })
 

@@ -2,10 +2,10 @@ require 'spec_helper'
 require_relative '../lib/app/interaction/controller/welcome_controller'
 
 def welcome_controller()
-  App::Interaction::Controller::WelcomeController.new
+  App::Interaction::Controller::Welcome.new
 end
 
-describe App::Interaction::Controller::WelcomeController do
+describe App::Interaction::Controller::Welcome do
   describe :view do
     it 'should show welcome view if logged in' do
       response = welcome_controller.view(logged_in_request)

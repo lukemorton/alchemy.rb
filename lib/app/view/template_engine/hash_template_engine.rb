@@ -1,7 +1,7 @@
 module App
   module View
     module TemplateEngine
-      class HashTemplateEngine
+      class Hash
         def render(template, view_model)
           {
             :template => template,
