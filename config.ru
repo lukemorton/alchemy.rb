@@ -39,9 +39,10 @@ class Application < App::Interaction::Application::Sinatra
       :users => App::Data::Mapper::Users.new,
     }
 
-    @view = App::View::TemplateEngine::Mustache.new({
-      :template_path => APP_ROOT + '/templates'
-    })
+    @view =
+      App::View::TemplateEngine::Mustache.new({
+        :template_path => APP_ROOT + '/templates'
+      })
 
     super
   end
