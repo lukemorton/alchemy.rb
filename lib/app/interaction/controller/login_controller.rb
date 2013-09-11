@@ -31,11 +31,7 @@ module App
           if login_result.has_key?(:user_id)
             login_and_redirect(login_result[:user_id])
           else
-            request[:login_result] = {
-              :values => {:email => request[:post][:email]},
-              :errors => request[:errors],
-            }
-
+            request[:login_result] = login_result
             view(request)
           end
         end

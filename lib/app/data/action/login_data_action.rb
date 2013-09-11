@@ -10,7 +10,10 @@ module App
           if user_id = user_id_from_email(data)
             {:user_id => user_id}
           else
-            {:errors => {:email => 'Not found'}}
+            {
+              :values => {:email => data[:email]},
+              :errors => {:email => 'Not found'},
+            }
           end
         end
 
