@@ -32,10 +32,7 @@ module App
           })
 
           if login_result.has_key?(:user_id)
-            {
-              :session => {:user_id => login_result[:user_id]},
-              :redirect => '/',
-            }
+            login_and_redirect(login_result[:user_id])
           else
             request[:login_result] = {
               :values => {:email => request[:post][:email]},
@@ -56,6 +53,13 @@ module App
           if is_logged_in(request)
             {:redirect => '/'}
           end
+        end
+
+        def login_and_redirect(user_id)
+          {
+            :session => {:user_id => user_id},
+            :redirect => '/',
+          }
         end
       end
     end
