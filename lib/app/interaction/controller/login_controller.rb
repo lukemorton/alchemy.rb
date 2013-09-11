@@ -28,8 +28,8 @@ module App
               :email => request[:post][:email],
             })
 
-          if login_result.has_key?(:user_id)
-            login_and_redirect(login_result[:user_id])
+          if response = login_and_redirect_if_successful(login_result)
+            response
           else
             request[:login_result] = login_result
             view(request)
@@ -61,6 +61,12 @@ module App
             :session => {:user_id => user_id},
             :redirect => '/',
           }
+        end
+
+        def login_and_redirect_if_successful(login_result)
+          if login_result.has_key?(:user_id)
+            login_and_redirect(login_result[:user_id])
+          end
         end
       end
     end
