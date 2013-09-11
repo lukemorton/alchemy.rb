@@ -6,7 +6,7 @@ module App
     module Controller
       class LoginController
         def view(request)
-          if response = should_redirect(request)
+          if response = redirect_if_logged_in(request)
             return response
           end
 
@@ -22,7 +22,7 @@ module App
         end
 
         def action(request)
-          if response = should_redirect(request)
+          if response = redirect_if_logged_in(request)
             return response
           end
 
@@ -46,7 +46,7 @@ module App
           end
         end
 
-        def should_redirect(request)
+        def redirect_if_logged_in(request)
           if request[:session].has_key?(:user_id)
             {:redirect => '/'}
           end
