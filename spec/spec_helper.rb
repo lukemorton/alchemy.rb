@@ -16,7 +16,5 @@ def request(request = {})
 end
 
 def logged_in_request()
-  request({
-    :session => {:user_id => 0},
-  })
+  request({:session => {:user_id => 0}})
 end
