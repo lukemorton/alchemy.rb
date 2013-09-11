@@ -32,6 +32,9 @@ This repository is a ruby web application that doesn't use
 a framework. It's controllers are fully tested and every
 other component testable.
 
+![Build Status](https://travis-ci.org/DrPheltRight/alchemy.rb.png)
+![Code Coverage](https://coveralls.io/repos/DrPheltRight/alchemy.rb/badge.png)
+
 ### Installing
 
 From the command line you can install the dependencies to run
