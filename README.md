@@ -17,7 +17,7 @@ All useful things. They make these decisions for you so you
 don't have to. They also remove or reduce the boiler plate for
 doing such things.
 
-We all have worked on legacy, barnacled applications. We all
+We have all worked on legacy, barnacled applications. We all
 know how bad sans-framework can be. We developed frameworks to
 remove the pain of repetition and disorganisation. I would
 like to suggest that we can avoid repetition and
