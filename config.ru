@@ -2,14 +2,14 @@ require 'bundler'
 
 APP_ROOT = File.dirname(__FILE__)
 
-require APP_ROOT + '/lib/app/interaction/application/sinatra_application'
-require APP_ROOT + '/lib/app/interaction/controller/welcome_controller'
-require APP_ROOT + '/lib/app/interaction/controller/login_controller'
-require APP_ROOT + '/lib/app/interaction/controller/logout_controller'
+require APP_ROOT + '/lib/app/interaction/application/sinatra'
+require APP_ROOT + '/lib/app/interaction/controller/welcome'
+require APP_ROOT + '/lib/app/interaction/controller/login'
+require APP_ROOT + '/lib/app/interaction/controller/logout'
 
-require APP_ROOT + '/lib/app/data/mapper/users_data_mapper'
+require APP_ROOT + '/lib/app/data/mapper/users'
 
-require APP_ROOT + '/lib/app/view/template_engine/mustache_template_engine'
+require APP_ROOT + '/lib/app/view/template_engine/mustache'
 
 class Application < App::Interaction::Application::Sinatra
   

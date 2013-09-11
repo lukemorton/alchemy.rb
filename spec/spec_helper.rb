@@ -1,8 +1,8 @@
 require 'coveralls'
 Coveralls.wear!
 
-require_relative '../lib/app/data/mapper/users_data_mapper'
-require_relative '../lib/app/view/template_engine/hash_template_engine'
+require_relative '../lib/app/data/mapper/users'
+require_relative '../lib/app/view/template_engine/hash'
 
 def request(request = {})
   request[:mappers] = {

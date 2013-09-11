@@ -1,5 +1,5 @@
-require_relative '../../data/action/login_data_action'
-require_relative '../../view/model/login_view_model'
+require_relative '../../data/action/login'
+require_relative '../../view/model/login'
 
 module App
   module Interaction

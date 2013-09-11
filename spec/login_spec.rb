@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../lib/app/interaction/controller/login_controller'
+require_relative '../lib/app/interaction/controller/login'
 
 def login_controller()
   App::Interaction::Controller::Login.new

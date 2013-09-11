@@ -1,5 +1,5 @@
-require_relative '../../data/model/welcome_data_model'
-require_relative '../../view/model/welcome_view_model'
+require_relative '../../data/model/welcome'
+require_relative '../../view/model/welcome'
 
 module App
   module Interaction
