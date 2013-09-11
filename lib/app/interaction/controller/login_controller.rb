@@ -48,8 +48,12 @@ module App
 
         private
 
+        def is_logged_in(request)
+          request[:session].has_key?(:user_id)
+        end
+
         def redirect_if_logged_in(request)
-          if request[:session].has_key?(:user_id)
+          if is_logged_in(request)
             {:redirect => '/'}
           end
         end
