@@ -67,8 +67,6 @@ module App
           add_redirect_response(response)
           set_default_response_status(response)
           set_default_response_body(response)
-          
-          response
         end
 
         def save_session(response)
@@ -80,10 +78,9 @@ module App
         end
 
         def control(controller, method)
-          response =
-            normalise_response(
-              @controllers[controller].send(method, request_hash))
-
+          response = @controllers[controller].send(method, request_hash)
+            
+          normalise_response(response)
           save_session(response)
 
           [response[:status], response[:headers], response[:body]]
