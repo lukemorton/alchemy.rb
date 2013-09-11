@@ -8,8 +8,6 @@ def request(request = {})
 
   request[:view] = App::View::TemplateEngine::HashTemplateEngine.new
   
-  request[:uri] ||= '/'
-  request[:method] ||= 'GET'
   request[:session] ||= {}
   request[:post] ||= {}
   request[:query] ||= {}
