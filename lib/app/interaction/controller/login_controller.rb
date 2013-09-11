@@ -10,13 +10,9 @@ module App
             return response
           end
 
-          if request.has_key?(:login_result)
-            data_model = request[:login_result]
-          else
-            data_model = {}
-          end
-
-          view_model = View::Model::LoginViewModel.as_hash(data_model)
+          view_model =
+            View::Model::LoginViewModel.as_hash(
+              login_data_model(request))
           
           {:body => request[:view].render(:login, view_model)}
         end
@@ -52,6 +48,14 @@ module App
         def redirect_if_logged_in(request)
           if is_logged_in(request)
             {:redirect => '/'}
+          end
+        end
+
+        def login_data_model(request)
+          if request.has_key?(:login_result)
+            request[:login_result]
+          else
+            {}
           end
         end
 
