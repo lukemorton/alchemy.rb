@@ -8,3 +8,4 @@ gem 'mustache'
 gem 'rspec'
 gem 'thin'
 gem 'shotgun'
+gem 'coveralls', require: false
