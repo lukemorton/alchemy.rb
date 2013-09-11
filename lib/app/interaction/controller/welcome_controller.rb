@@ -6,7 +6,7 @@ module App
     module Controller
       class WelcomeController
         def view(request)
-          if response = should_redirect(request)
+          if response = redirect_if_not_logged_in(request)
             return response 
           end
 
@@ -22,7 +22,7 @@ module App
 
         private
 
-        def should_redirect(request)
+        def redirect_if_not_logged_in(request)
           unless request[:session].has_key?(:user_id)
             {:redirect => '/login'}
           end
