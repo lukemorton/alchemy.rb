@@ -21,9 +21,10 @@ describe App::Interaction::Controller::Login do
   describe :action do
     it 'should on successful login set session and redirect to /' do
       response =
-        login_controller.action(request({
-          :post => {:email => 'lukemorton.dev@gmail.com'},
-        }))
+        login_controller.action(
+          request({
+            :post => {:email => 'lukemorton.dev@gmail.com'},
+          }))
 
       expect(response[:session][:user_id]).to eq(0)
     end
@@ -35,9 +36,10 @@ describe App::Interaction::Controller::Login do
 
     it 'should show view if login unsuccessful' do
       response =
-        login_controller.action(request({
-          :post => {:email => 'unknown@gmail.com'},
-        }))
+        login_controller.action(
+          request({
+            :post => {:email => 'unknown@gmail.com'},
+          }))
 
       expect(response[:body][:template]).to eq(:login)
     end
