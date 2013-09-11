@@ -22,8 +22,12 @@ module App
 
         private
 
+        def is_logged_in(request)
+          request[:session].has_key?(:user_id)
+        end
+
         def redirect_if_not_logged_in(request)
-          unless request[:session].has_key?(:user_id)
+          unless is_logged_in(request)
             {:redirect => '/login'}
           end
         end
