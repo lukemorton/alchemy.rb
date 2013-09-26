@@ -23,6 +23,7 @@ module App
 
         def request_hash()
           {
+            :params => params,
             :query => symbolise_hash_keys(request.GET),
             :post => symbolise_hash_keys(request.POST),
             :cookies => symbolise_hash_keys(request.cookies),
