@@ -2,10 +2,6 @@ module App
   module Data
     module Action
       class Login
-        def self.exec(data)
-          self.new.exec(data)
-        end
-
         def exec(data)
           if user_id = user_id_from_email(data)
             {:user_id => user_id}
