@@ -58,8 +58,8 @@ class Application < App::Interaction::Application::Sinatra
 
       :view => {
         :model => {
-          :login => App::View::Model::Login,
-          :welcome => App::View::Model::Welcome,
+          :login => App::View::Model::Login.new,
+          :welcome => App::View::Model::Welcome.new,
         },
 
         :template_engine => {

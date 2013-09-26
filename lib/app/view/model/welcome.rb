@@ -2,21 +2,14 @@ module App
   module View
     module Model
       class Welcome
-        def self.as_hash(data)
-          welcome_view_model = self.new(data)
+        def as_hash(data)
           {
-            :user_name => welcome_view_model.user_name,
-            :logout_url => '/logout'
+            :user_name => data[:user][:name],
+            :logout_url => logout_url,
           }
         end
 
-        def initialize(data)
-          @user = data[:user]
-        end
-
-        def user_name()
-          @user[:name]
-        end
+        private
 
         def logout_url()
           '/logout'
