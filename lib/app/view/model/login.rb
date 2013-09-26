@@ -2,7 +2,7 @@ module App
   module View
     module Model
       class Login
-        def as_hash(data)
+        def to_hash(data)
           {
             :email => email(data),
           }

@@ -8,12 +8,12 @@ module App
           end
 
           data_model =
-            request[:data][:model][:welcome].as_hash({
+            request[:data][:model][:welcome].to_hash({
               :mappers => request[:data][:mappers],
               :user_id => request[:session][:user_id],
             })
 
-          view_model = request[:view][:model][:welcome].as_hash(data_model)
+          view_model = request[:view][:model][:welcome].to_hash(data_model)
 
           {
             :body =>

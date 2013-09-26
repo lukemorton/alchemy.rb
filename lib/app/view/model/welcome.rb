@@ -2,7 +2,7 @@ module App
   module View
     module Model
       class Welcome
-        def as_hash(data)
+        def to_hash(data)
           {
             :user_name => data[:user][:name],
             :logout_url => logout_url,

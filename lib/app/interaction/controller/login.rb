@@ -8,7 +8,7 @@ module App
           end
 
           view_model =
-            request[:view][:model][:login].as_hash(
+            request[:view][:model][:login].to_hash(
               login_data_model(request))
           
           {
