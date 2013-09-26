@@ -8,8 +8,12 @@ require APP_ROOT + '/lib/app/interaction/controller/login'
 require APP_ROOT + '/lib/app/interaction/controller/logout'
 
 require APP_ROOT + '/lib/app/data/mapper/users'
+require APP_ROOT + '/lib/app/data/action/login'
+require APP_ROOT + '/lib/app/data/model/welcome'
 
 require APP_ROOT + '/lib/app/view/template_engine/mustache'
+require APP_ROOT + '/lib/app/view/model/login'
+require APP_ROOT + '/lib/app/view/model/welcome'
 
 class Application < App::Interaction::Application::Sinatra
   
@@ -28,34 +32,51 @@ class Application < App::Interaction::Application::Sinatra
 
   # Initialise dependencies
   # 
-  def initialize()
-    @controllers = {
-      :welcome => App::Interaction::Controller::Welcome.new,
-      :login => App::Interaction::Controller::Login.new,
-      :logout => App::Interaction::Controller::Logout.new,
+  def dependencies()
+    {
+      :interaction => {
+        :controller => {
+          :welcome => App::Interaction::Controller::Welcome.new,
+          :login => App::Interaction::Controller::Login.new,
+          :logout => App::Interaction::Controller::Logout.new,
+        },
+      },
+
+      :data => {
+        :mappers => {
+          :users => App::Data::Mapper::Users.new,
+        },
+
+        :model => {
+          :welcome => App::Data::Model::Welcome.new,
+        },
+
+        :action => {
+          :login => App::Data::Action::Login.new,
+        }
+      },
+
+      :view => {
+        :model => {
+          :login => App::View::Model::Login,
+          :welcome => App::View::Model::Welcome,
+        },
+
+        :template_engine => {
+          :mustache => App::View::TemplateEngine::Mustache.new({
+            :template_path => APP_ROOT + '/templates'
+          }),
+        },
+      },
     }
-
-    @mappers = {
-      :users => App::Data::Mapper::Users.new,
-    }
-
-    @view =
-      App::View::TemplateEngine::Mustache.new({
-        :template_path => APP_ROOT + '/templates'
-      })
-
-    super
   end
 
   # Inject some of our own objects into request hash
+  #
+  # Inject some of our own objects into request hash
   # 
   def request_hash()
-    hash = super
-
-    hash[:view] = @view
-    hash[:mappers] = @mappers
-
-    hash
+    super.merge(dependencies)
   end
 
   # Application Routing

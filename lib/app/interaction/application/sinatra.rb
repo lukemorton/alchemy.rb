@@ -77,8 +77,9 @@ module App
           end
         end
 
-        def control(controller, method)
-          response = @controllers[controller].send(method, request_hash)
+        def control(controller_name, method)
+          controller = dependencies[:interaction][:controller][controller_name]
+          response = controller.send(method, request_hash)
             
           normalise_response(response)
           save_session(response)

@@ -1,6 +1,3 @@
-require_relative '../../data/action/login'
-require_relative '../../view/model/login'
-
 module App
   module Interaction
     module Controller
@@ -11,10 +8,15 @@ module App
           end
 
           view_model =
-            View::Model::Login.as_hash(
+            request[:view][:model][:login].as_hash(
               login_data_model(request))
           
-          {:body => request[:view].render(:login, view_model)}
+          {
+            :body =>
+              request[:view][:template_engine][:mustache].render(
+                :login,
+                view_model)
+          }
         end
 
         def action(request)
@@ -23,8 +25,8 @@ module App
           end
 
           login_result =
-            Data::Action::Login.exec({
-              :mappers => request[:mappers],
+            request[:data][:action][:login].exec({
+              :mappers => request[:data][:mappers],
               :email => request[:post][:email],
             })
 

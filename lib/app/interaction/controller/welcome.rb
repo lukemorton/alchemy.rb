@@ -1,6 +1,3 @@
-require_relative '../../data/model/welcome'
-require_relative '../../view/model/welcome'
-
 module App
   module Interaction
     module Controller
@@ -11,13 +8,19 @@ module App
           end
 
           data_model =
-            Data::Model::Welcome.as_hash({
-              :mappers => request[:mappers],
+            request[:data][:model][:welcome].as_hash({
+              :mappers => request[:data][:mappers],
               :user_id => request[:session][:user_id],
             })
 
-          view_model = View::Model::Welcome.as_hash(data_model)
-          {:body => request[:view].render(:welcome, view_model)}
+          view_model = request[:view][:model][:welcome].as_hash(data_model)
+
+          {
+            :body =>
+              request[:view][:template_engine][:mustache].render(
+                :welcome,
+                view_model)
+          }
         end
 
         private
